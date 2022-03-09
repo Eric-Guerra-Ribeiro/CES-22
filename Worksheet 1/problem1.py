@@ -1,17 +1,6 @@
 import math
 import turtle
 
-def create_turtle():
-    """
-    Creates a hotpink turtle.
-    """
-    turt = turtle.Turtle(shape="turtle")
-    turt.color("hotpink")
-    turt.pensize(3)
-    return turt
-
-
-# Problem 1
 def draw_squares(turt, n_sq, init_sz, incr_sz):
     """
     Makes the turtle turt draw n_sq squares with the same center
@@ -37,6 +26,7 @@ def draw_squares(turt, n_sq, init_sz, incr_sz):
     window.mainloop()
 
 
-# Problem 1
-turt = create_turtle()
+turt = turtle.Turtle(shape="turtle")
+turt.color("hotpink")
+turt.pensize(3)
 draw_squares(turt, 5, 20, 20)
