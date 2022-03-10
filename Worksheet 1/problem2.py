@@ -9,8 +9,9 @@ def draw_poly(turt, n, sz):
     window.bgcolor("lightgreen")
     window.title("Problem 2 - Polygon")
     angle = 360/n
+    # Draws polygon
+    turt.pendown()
     for i in range(n):
-        turt.pendown()
         turt.forward(sz)
         turt.left(angle)
     window.mainloop()
