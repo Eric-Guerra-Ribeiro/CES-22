@@ -14,7 +14,7 @@ def is_prime(n):
         return False
     # Check if n is a multiple of a number, besides 1 and itself
     aux = 3
-    while aux <= math.ceil(math.sqrt(n)):
+    while aux <= math.ceil(math.sqrt(abs(n))):
         if n % aux == 0:
             return False
         aux += 2
