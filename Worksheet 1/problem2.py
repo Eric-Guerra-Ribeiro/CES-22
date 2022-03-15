@@ -1,4 +1,6 @@
 import turtle
+import time
+import math
 
 def draw_poly(turt, n, sz):
     """
@@ -14,10 +16,18 @@ def draw_poly(turt, n, sz):
     for i in range(n):
         turt.forward(sz)
         turt.left(angle)
-    window.mainloop()
+    time.sleep(1)
 
+def main():
+    """
+    Draws a regular octagon with a turtle.
+    """
+    turt = turtle.Turtle(shape="turtle")
+    turt.color("hotpink")
+    turt.pensize(3)
+    turt.penup()
+    turt.goto(60, -25*(1+math.sqrt(2)))
+    draw_poly(turt, 8, 50)
 
-turt = turtle.Turtle(shape="turtle")
-turt.color("hotpink")
-turt.pensize(3)
-draw_poly(turt, 8, 50)
+if __name__ == "__main__":
+    main()

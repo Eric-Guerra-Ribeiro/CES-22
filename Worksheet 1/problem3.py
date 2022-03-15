@@ -14,7 +14,3 @@ def sum_to_gauss(n):
     and including n, by using Gauss's formula.
     """
     return n*(n+1)//2
-
-
-print(sum_to(10))
-print(sum_to_gauss(10))

@@ -1,5 +1,6 @@
 import math
 import turtle
+import time
 
 def draw_squares(turt, n_sq, init_sz, incr_sz):
     """
@@ -23,10 +24,18 @@ def draw_squares(turt, n_sq, init_sz, incr_sz):
         turt.right(45)
         turt.forward(incr_sz/math.sqrt(2))
         turt.left(135)
-    window.mainloop()
+    time.sleep(1)
 
+def main():
+    """
+    Draws many concentric squares with a turtle.
+    """
+    turt = turtle.Turtle(shape="turtle")
+    turt.color("hotpink")
+    turt.pensize(3)
+    turt.penup()
+    turt.goto(-60, -10)
+    draw_squares(turt, 5, 20, 20)
 
-turt = turtle.Turtle(shape="turtle")
-turt.color("hotpink")
-turt.pensize(3)
-draw_squares(turt, 5, 20, 20)
+if __name__ == "__main__":
+    main()
