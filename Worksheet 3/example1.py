@@ -14,7 +14,7 @@ class Polygon:
         pass
     
     @abc.abstractclassmethod
-    def unitary_polygon(cls):
+    def from_area(cls, area):
         pass
 
     @staticmethod
@@ -35,5 +35,5 @@ class Square(Polygon):
     def area_formula():
         return "A = a^2"
     
-    def unitary_polygon(cls):
-        return cls(1).area()
+    def from_area(cls, area):
+        return cls(area**0.5)
