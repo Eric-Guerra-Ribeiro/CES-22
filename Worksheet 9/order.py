@@ -1,7 +1,5 @@
 import abc
 
-from numpy import product
-
 class OrderInterface(abc.ABC):
     """
     Class interface for client's buy orders.
