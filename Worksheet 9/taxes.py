@@ -7,6 +7,7 @@ class TaxCalculator(abc.ABC):
     def __init__(self) -> None:
         pass
 
+    @abc.abstractmethod
     def get_taxes(self, **kwargs) -> float:
         pass
 

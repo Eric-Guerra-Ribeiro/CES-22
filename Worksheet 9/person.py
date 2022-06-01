@@ -67,7 +67,7 @@ class Writer(Person):
         elif atribute == "email":
             return self.email == value
         elif atribute == "published_titles":
-            return value.writer == self.name
+            return value.writer is self
         else:
             return False
 
@@ -123,7 +123,7 @@ class Client(Person):
         elif atribute == "email":
             return self.email == value
         elif atribute == "past_orders":
-            return value.client == self.name
+            return value.client is self
         else:
             return False
 
