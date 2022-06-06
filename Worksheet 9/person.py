@@ -30,6 +30,9 @@ class Person(abc.ABC):
         Returns if the atribute was successfuly modified.
         """
         pass
+    
+    def __str__(self) -> str:
+        return f"{self.name}"
 
 
 class Writer(Person):

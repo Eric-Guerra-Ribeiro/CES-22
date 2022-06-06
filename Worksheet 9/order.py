@@ -4,9 +4,12 @@ class OrderInterface(abc.ABC):
     """
     Class interface for client's buy orders.
     """
+    num_orders = 0
     def __init__(self, client, order_list=[]):
         self.client = client
         self.order_list = order_list
+        self.id = self.num_orders
+        self.num_orders += 1
         
     @abc.abstractmethod
     def add_order_item(self, **kwargs):
@@ -29,6 +32,9 @@ class OrderInterface(abc.ABC):
         Deletes order item in list.
         """
         pass
+    
+    def __str__(self):
+        return f"Order {self.id}: {self.order_list} by {self.client}"
 
 
 class OrderProduct(OrderInterface):

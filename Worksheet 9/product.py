@@ -154,3 +154,6 @@ class Book(Product):
         buy_price = float(input("Book buy price? "))
         print()
         return cls.__init__(title, writer, genre, edition, publisher, sell_price, buy_price)
+    
+    def __str__(self) -> str:
+        return f"{self.title}"
