@@ -54,7 +54,6 @@ class OrderProduct(OrderInterface):
     def modify_order_item(self, **kwargs):
         """
         Modify product item in list.
-        Returns if modification was successful.
         """
         if kwargs["new_qnty"] == 0:
             return self.delete_order_item(kwargs)
@@ -62,8 +61,8 @@ class OrderProduct(OrderInterface):
         for order in self.order_list:
             if order["product"] is product:
                 order["qnty"] = kwargs["new_qnty"]
-                return True
-        return False
+                return
+        self.add_order_item(self, product=kwargs["product"], qnty=kwargs["new_qnty"])
 
     def delete_order_item(self, **kwargs):
         """
