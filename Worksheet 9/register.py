@@ -131,3 +131,41 @@ class RegisterBook(RegisterProduct):
         Returns all published titles by a writer.
         """
         return self.writers.find_element(writer_name)
+
+
+class RegisterOrder(Register):
+    """
+    Registration for orders
+    """
+    def __init__(self, client_register):
+        super().__init__()
+        self.clients = client_register
+    
+    def add_element(self, element):
+        """
+        Adds new order to the register
+        """
+        for client in self.clients:
+            if client is element.get_atribute("client"):
+                client.modify_atribute("past_orders", element)
+        super().add_element(element)
+    
+    def del_element(self, element):
+        """
+        Deletes order from the register.
+        """
+        for i in range(len(element.client.past_orders)):
+            if element.client.past_orders[i] is element:
+                del element.client.past_orders[i]
+                return super().del_element(element)
+        return False
+
+    def find_element(self, element):
+        """
+        Finds the order by their id in the registration.
+        None if it's not there.
+        """
+        for order in self.register:
+            if order.check_atribute("id", element):
+                return order
+        return None
