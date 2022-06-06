@@ -32,13 +32,6 @@ class Product(abc.ABC):
         """
         pass
 
-    @abc.abstractclassmethod
-    def add_product(self):
-        """
-        Creates a new product
-        """
-        pass
-
 
 class Book(Product):
     """
@@ -133,27 +126,6 @@ class Book(Product):
         else:
             return False
         return True
-
-    def add_product(cls):
-        """
-        Creates a new book
-        """
-        print("Creating new book, fill down the information bellow:")
-        title = input("Book title? ")
-        print()
-        writer = input("Book writer? ")
-        print()
-        genre = input("Book genre? ")
-        print()
-        edition = input("Book edition? ")
-        print()
-        publisher = input("Book publisher? ")
-        print()
-        sell_price = float(input("Book sell price? "))
-        print()
-        buy_price = float(input("Book buy price? "))
-        print()
-        return cls.__init__(title, writer, genre, edition, publisher, sell_price, buy_price)
     
     def __str__(self) -> str:
         return f"{self.title}"
