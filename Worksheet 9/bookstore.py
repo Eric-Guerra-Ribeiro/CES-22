@@ -13,9 +13,9 @@ class BookStore:
         self.book_register = register.RegisterBook(self.writer_register)
         self.order_register = register.RegisterOrder(self.client_register)
         print("Welcome to the Book Store:")
-        self.costumer_service()
+        self.customer_service()
     
-    def costumer_service(self):
+    def customer_service(self):
         """
         Handles the services for the costumers.
         """
@@ -43,7 +43,7 @@ class BookStore:
             return
         else:
             print("Invalid key, try again, please")
-        self.costumer_service()
+        self.customer_service()
 
     def add_to_register(self):
         """
@@ -63,7 +63,7 @@ class BookStore:
         elif pressed == "3":
             self.add_new_order()
         elif pressed == "4":
-            self.costumer_service()
+            self.customer_service()
         else:
             print("Invalid key, try again, please.")
             self.add_to_register()
@@ -142,7 +142,7 @@ class BookStore:
         elif pressed == "3":
             self.modify_order()
         elif pressed == "4":
-            self.costumer_service()
+            self.customer_service()
         else:
             print("Invalid key, try again, please.")
             self.modify_register()
@@ -225,7 +225,7 @@ class BookStore:
         elif pressed == "4":
             self.find_order()
         elif pressed == "5":
-            self.costumer_service()
+            self.customer_service()
         else:
             print("Invalid key, try again, please.")
             self.find_in_register()
@@ -299,7 +299,7 @@ class BookStore:
         elif pressed == "3":
             self.del_order()
         elif pressed == "4":
-            self.costumer_service()
+            self.customer_service()
         else:
             print("Invalid key, try again, please.")
             self.del_from_register()
@@ -361,7 +361,7 @@ class BookStore:
         elif pressed == "4":
             self.writer_register.print_register()
         elif pressed == "5":
-            self.costumer_service()
+            self.customer_service()
         else:
             print("Invalid key, try again, please.")
             self.del_from_register()
