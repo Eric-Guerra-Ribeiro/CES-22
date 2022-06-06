@@ -153,7 +153,7 @@ class RegisterOrder(Register):
         Adds new order to the register
         """
         for client in self.clients.register:
-            if client is element.get_atribute("client"):
+            if client is element.client:
                 client.modify_atribute("past_orders", element)
         super().add_element(element)
     
@@ -183,6 +183,6 @@ class RegisterOrder(Register):
         None if it's not there.
         """
         for order in self.register:
-            if order.check_atribute("id", element):
+            if order.id == element:
                 return order
         return None
