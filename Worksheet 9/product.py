@@ -48,6 +48,12 @@ class Book(Product):
         self.publisher = publisher
         self.sell_price = sell_price
         self.buy_price = buy_price
+        self.update_taxes()
+
+    def update_taxes(self):
+        """
+        Updates taxes calculations.
+        """
         self.taxes = self.taxes_calculator.get_taxes(genre=self.genre, sell_price=self.sell_price,
                                                      buy_price=self.buy_price)
 
@@ -72,6 +78,7 @@ class Book(Product):
         elif atribute == "buy_price":
             return self.buy_price
         elif atribute == "taxes":
+            self.update_taxes()
             return self.taxes
         else:
             raise Exception(f"Error 404: {atribute} not found")
@@ -97,6 +104,7 @@ class Book(Product):
         elif atribute == "buy_price" or atribute == "buy price":
             return self.buy_price == value
         elif atribute == "taxes":
+            self.update_taxes()
             return self.taxes == value
         else:
             return False
@@ -122,6 +130,7 @@ class Book(Product):
         elif atribute == "buy_price":
             self.buy_price = value
         elif atribute == "taxes":
+            self.update_taxes()
             self.taxes = value
         else:
             return False
