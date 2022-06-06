@@ -20,11 +20,12 @@ class BookTaxCalculator(abc.ABC):
         super().__init__()
     
     def get_taxes(self, **kwargs) ->float:
-        if kwargs["genre"] == "fiction":
+        genre = str.lower(kwargs["genre"])
+        if genre == "fiction":
             genre_rate = 0.30
-        elif kwargs["genre"] == "educational":
+        elif genre == "educational":
             genre_rate = 0.
-        elif kwargs["genre"] == "non-fiction":
+        elif genre == "non-fiction":
             genre_rate = 0.15
         else:
             genre_rate = 0.40
