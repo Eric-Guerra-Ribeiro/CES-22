@@ -37,3 +37,30 @@ class Register(abc.ABC):
         None if it's not there.
         """
         pass
+
+
+class RegisterPerson(Register):
+    """
+    Registration for people.
+    """
+    def __init__(self):
+        super().__init__()
+    
+    def modify_element(self, element, atribute, value):
+        """
+        Modifies an element's atribute to a value.
+        """
+        for person in self.register:
+            if person is element:
+                return person.modify_atribute(atribute, value)
+        return False
+
+    def find_element(self, element):
+        """
+        Finds the person by their name in the registration.
+        None if it's not there.
+        """
+        for person in self.register:
+            if person.check_atribute("name") == element:
+                return person
+        return None
