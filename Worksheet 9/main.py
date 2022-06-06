@@ -1,4 +1,4 @@
-import book_store
+import bookstore
 
 if __name__ == "__main__":
-    book_store.BookStore()
+    bookstore.BookStore()
