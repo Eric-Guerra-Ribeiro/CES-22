@@ -42,7 +42,13 @@ class Register(abc.ABC):
         """
         Prints all elements in register.
         """
-        print(self.register)
+        if len(self.register) > 0:
+            print("[", end="")
+            for i in range(len(self.register) - 1):
+                print(f"{self.register[i]}, ", end="")
+            print(f"{self.register[-1]}]")
+        else:
+            print("[]")
 
 
 class RegisterPerson(Register):
@@ -101,7 +107,7 @@ class RegisterBook(RegisterProduct):
         """
         Adds new book to the register
         """
-        for writer in self.writers:
+        for writer in self.writers.register:
             if writer is element.get_atribute("writer"):
                 writer.modify_atribute("published_titles", element)
         super().add_element(element)
@@ -130,7 +136,8 @@ class RegisterBook(RegisterProduct):
         """
         Returns all published titles by a writer.
         """
-        return self.writers.find_element(writer_name)
+        writer = self.writers.find_element(writer_name)
+        return [] if writer is None else writer.published_titles
 
 
 class RegisterOrder(Register):
@@ -145,7 +152,7 @@ class RegisterOrder(Register):
         """
         Adds new order to the register
         """
-        for client in self.clients:
+        for client in self.clients.register:
             if client is element.get_atribute("client"):
                 client.modify_atribute("past_orders", element)
         super().add_element(element)
@@ -158,6 +165,16 @@ class RegisterOrder(Register):
             if element.client.past_orders[i] is element:
                 del element.client.past_orders[i]
                 return super().del_element(element)
+        return False
+
+    def modify_element(self, element, atribute, value):
+        """
+        Modifies order from the register.
+        """
+        for order in self.register:
+            if order is element:
+                order.modify_order_item(product=atribute, new_qnty=value)
+                return True
         return False
 
     def find_element(self, element):
